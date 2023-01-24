@@ -4,7 +4,8 @@
 
 int main (){
     int array[5] = {0, 1, 2, 3, 4};
-    SPACE SPACE;
+    int size = sizeof(array) / sizeof(int);
+    SPACE SPACE(array, size);
 
     return 0;
 }

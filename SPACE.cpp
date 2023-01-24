@@ -2,7 +2,13 @@
 #include <cstdlib>
 #include "SPACE.h"
 
-    SPACE::SPACE()
+    SPACE::SPACE(int* array, int size)
     {
-        std::cout << "you are in space";
-    }
+        a = new int[size];
+        for (int i = 0; i < size; i++){
+            this->a[i] = array[i];
+        }
+        for (int i = 0; i < size; ++i){
+            std::cout << a[i];
+        }
+    };

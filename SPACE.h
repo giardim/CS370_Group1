@@ -4,7 +4,11 @@
 
 class SPACE{
     public:
-    SPACE();
+    SPACE(int*, int);
+
+    private:
+        int* a;
+        int size;
 };
 
 #endif
