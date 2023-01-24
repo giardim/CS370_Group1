@@ -28,4 +28,6 @@
         }
         
         filej << "}";
+
+        filej.close();
     };
