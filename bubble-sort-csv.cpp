@@ -42,6 +42,7 @@ void bubbleSort(int arr[], int n)
             }
         }
     }
+    fileCsv << "\n";
 }
 
 int main()
