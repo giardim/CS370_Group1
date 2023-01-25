@@ -7,6 +7,7 @@ This project will help students in the Data Structures and Algorithms class at S
 * A header file for students to include in their C++ programs
 * A function to extract the data structure
 * A function to convert the data structure into a format which can be loaded into a local webpage
+* Display the data structure visually
 * Abstract as much complexity from the user as possible
 
 ### Status
