@@ -16,16 +16,21 @@
             this->a[i] = array[i];
         }
         for (int i = 0; i < size; ++i){
-            filej << "\"Array" << i << "\": \"";
+            filej << "\"" << i << "\": [";
             for (int j = 0; j < size; ++j){
                 filej << a[j];
+                if (j != size - 1){
+                    filej << ",";
+                }
             }
             if (i == size - 1){
-                filej << "\"\n";
+                filej << "]\n";
             }else{
-            filej << "\",\n";
+            filej << "],\n";
             }
         }
         
         filej << "}";
-    };
+
+        filej.close();
+    }
