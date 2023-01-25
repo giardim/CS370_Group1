@@ -1,17 +1,17 @@
 // bubble sort & print as CSV every time something moves
 #include <bits/stdc++.h>
-using namespace std;
+#include <fstream>
 
 void printArray(int arr[], int size)
 {
     int i;
     for (i = 0; i < size; i++)
     {
-        cout << arr[i];
+        std::cout << arr[i];
         if (i + 1 != size)
-            cout << ",";
+            std::cout << ",";
     }
-    cout << endl;
+    std::cout << std::endl;
 }
 
 void bubbleSort(int arr[], int n)
@@ -25,16 +25,16 @@ void bubbleSort(int arr[], int n)
         {
             if (arr[j] > arr[j + 1])
             {
-                swap(arr[j], arr[j + 1]); //bubblesort
+                std::swap(arr[j], arr[j + 1]); //bubblesort
                 
                 int k;
                 for (k = 0; k < n; k++) //print array at each step as CSV
                 {
-                    cout << arr[k];
+                    std::cout << arr[k];
                     if (k + 1 != n)
-                        cout << ",";
+                        std::cout << ",";
                 }
-            cout << endl;
+            std::cout << std::endl;
             //this should be a call to the printArray() function but
             //c++ means i need to use pointers or something idk
             }
