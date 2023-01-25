@@ -17,6 +17,8 @@ void printArray(int arr[], int size)
 void bubbleSort(int arr[], int n)
 {
     int i, j;
+    std::ofstream fileCsv;
+    fileCsv.open("output.csv");
     for (i = 0; i < n - 1; i++) {
 
         // Last i elements are already
@@ -30,11 +32,11 @@ void bubbleSort(int arr[], int n)
                 int k;
                 for (k = 0; k < n; k++) //print array at each step as CSV
                 {
-                    std::cout << arr[k];
+                    fileCsv << arr[k];
                     if (k + 1 != n)
-                        std::cout << ",";
+                        fileCsv << ",";
                 }
-            std::cout << std::endl;
+            fileCsv << "\n";
             //this should be a call to the printArray() function but
             //c++ means i need to use pointers or something idk
             }
