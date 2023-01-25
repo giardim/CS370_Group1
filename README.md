@@ -16,9 +16,9 @@ Currently we are exporting data into a CSV file. Our webpage is using p5.js
 Browsers prevent loading files from disk as a security feature. To circumvent this we will save our 
 CSV data as javascript variables in a .js file. For example:
 
-`
-var step1 = "1,5,2,4"
-var step2 = "1,2,5,4"
-var step3 = "1,2,4,5"
 
-`
+	var step1 = "1,5,2,4"
+	var step2 = "1,2,5,4"
+	var step3 = "1,2,4,5"
+
+
