@@ -1,3 +1,5 @@
-a.exe
-.vscode
+.*
+*.exe
+*.out
 build
+data*

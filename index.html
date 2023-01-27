@@ -1,12 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html ondrop="drop(event);" ondragover="dragover(event);">
 
 <head>
   <title>SPACE</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <style>
+    html,
+    body {
+      background: #000000;
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/addons/p5.sound.min.js"></script>
-  <script src="sketch.js"></script>
+
+  <script>
+    let file = '';
+    let data = [];
+    let step = 0;
+    let play = 0;
+    let slider;
+
+    function drop(event) {
+      event.preventDefault();
+      if (event.dataTransfer.items) {
+        [...event.dataTransfer.items].forEach(async (item) => {
+          if (item.kind === 'file') {
+            file = (await item.getAsFile().text()).split('\n'); data = [];
+            for (const line of file) {
+              if (line) {
+                data.push(line.split(',').map(d => Number(d)));
+              }
+            }
+            slider.attribute('max', data.length - 1);
+            slider.value(0);
+            play = 0;
+          }
+        });
+      }
+    }
+
+    function dragover(event) {
+      event.preventDefault();
+    }
+
+    function setup() {
+      const canvas = createCanvas(windowWidth, windowHeight * 0.9);
+      canvas.mouseClicked(() => play = !play);
+      slider = createSlider(0, 1, 0, 0);
+      slider.style('display', 'block');
+      slider.style('margin', 'auto');
+      slider.style('width', '90%');
+    }
+
+    function draw() {
+      background(0);
+      if (data.length) {
+        if (play) {
+          if (step < data.length) {
+            slider.value(step + 1);
+          } else {
+            play = 0;
+          }
+        }
+        step = round(slider.value());
+
+        for (let i = 0; i < data[step].length; i++) {
+          const d = data[step][i];
+          const w = width / data[step].length;
+          const h = height * d / max(data[step]);
+          const x = i * w;
+          const y = height - h;
+          rect(x, y, w, h);
+        }
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight * 0.9);
+    }
+  </script>
 </head>
 
 <body>
