@@ -22,4 +22,13 @@ CSV data as javascript variables in a .js file. For example:
 	var step2 = "1,2,5,4"
 	var step3 = "1,2,4,5"
 
+### Compiling
+
+#### Windows
+
+g++ .\main.cpp .\SPACE.cpp 
+
+#### Linux
+
+g++ main.cpp SPACE.cpp 
 
